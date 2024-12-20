@@ -2,30 +2,29 @@
     'use strict';
 
     const DELAY = 300; // Delay para processar o comando
+    const UPDATE_INTERVAL = 12000; // Intervalo para atualização do JSON em milissegundos
     let typingTimer;
-    const JSON_URL = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://cdn.jsdelivr.net/gh/Miguelito001/funcoes/funcoe.json');
+    let METHOD_MAP = {};
+    const JSON_URL = `https://raw.githubusercontent.com/Miguelito001/funcoes/main/funcoe.json`;
 
-    // Carrega o METHOD_MAP a partir da URL remota
+    // Função para carregar o METHOD_MAP a partir do JSON remoto
     async function loadMethodMap() {
         try {
-            const response = await fetch(JSON_URL);
+            const response = await fetch(`${JSON_URL}?timestamp=${Date.now()}`); // Adiciona timestamp para evitar cache
             if (!response.ok) {
                 throw new Error(`Erro ao buscar o JSON: ${response.statusText}`);
             }
-            const METHOD_MAP = await response.json();
-            console.log("✅ METHOD_MAP carregado com sucesso:", METHOD_MAP);
-            return METHOD_MAP;
+            METHOD_MAP = await response.json();
+            console.log("✅ METHOD_MAP atualizado com sucesso:", METHOD_MAP);
         } catch (error) {
-            console.error("❌ Falha ao carregar METHOD_MAP. Verifique a URL ou a conectividade:", error);
-            return {}; // Retorna um objeto vazio em caso de falha
+            console.error("❌ Falha ao carregar METHOD_MAP:", error);
         }
-    }    
+    }
 
-    // Aguarda o carregamento do METHOD_MAP
-    const METHOD_MAP = await loadMethodMap();
-
-    if (Object.keys(METHOD_MAP).length === 0) {
-        console.warn("⚠️ METHOD_MAP não carregado. Usando um mapa vazio.");
+    // Atualiza o METHOD_MAP periodicamente
+    function startPeriodicUpdate() {
+        loadMethodMap(); // Carrega a versão inicial do JSON
+        setInterval(loadMethodMap, UPDATE_INTERVAL); // Atualiza o JSON a cada 2 minutos
     }
 
     // Monitora o DOM para detectar elementos CodeMirror
@@ -84,6 +83,8 @@
         if (METHOD_MAP[lastWord]) {
             console.log(`✅ Substituindo "${lastWord}" por:\n"${METHOD_MAP[lastWord]}"`);
             replaceMethod(editor, lastWord, METHOD_MAP[lastWord], cursor);
+        } else {
+            console.warn(`❓ Comando "${lastWord}" não encontrado no METHOD_MAP.`);
         }
     }
 
@@ -107,6 +108,9 @@
             console.log("✨ Substituição realizada com sucesso.");
         }
     }
+
+    // Inicia a atualização periódica do METHOD_MAP
+    startPeriodicUpdate();
 
     // Observa o DOM e inicia o monitoramento
     setInterval(waitForEditorInitialization, 1000); // Verifica a cada 1 segundo
