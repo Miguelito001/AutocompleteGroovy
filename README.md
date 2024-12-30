@@ -40,10 +40,7 @@ A **Autocomplete Groovy** funciona automaticamente em qualquer página com campo
 1. **Digite o atalho**:
    - No campo de texto, digite "/" seguido do nome que deseja substituir.
 
-2. **Pressione a tecla "Tab"**:
-   - Após digitar o atalho, pressione a tecla "Tab" para que a substituição seja realizada automaticamente.
-
-Por exemplo, ao digitar "/funcao" e pressionar "Tab", o texto será substituído pela função correspondente previamente definida.
+Por exemplo, ao digitar "/funcao", o texto será substituído pela função correspondente previamente definida.
 
 ## Suporte e Feedback
 
