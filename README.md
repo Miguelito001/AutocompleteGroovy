@@ -9,8 +9,9 @@ A extensão **Autocomplete Groovy** foi desenvolvida para facilitar o desenvolvi
 1. [Introdução](#introdução)
 2. [Instalação](#instalação)
 3. [Uso](#uso)
-4. [Suporte e Feedback](#suporte-e-feedback)
-5. [Histórico de Versões](#histórico-de-versões)
+4. [Funções Disponíveis](#funções-disponíveis)
+5. [Suporte e Feedback](#suporte-e-feedback)
+6. [Histórico de Versões](#histórico-de-versões)
 
 ## Introdução
 
@@ -41,6 +42,46 @@ A **Autocomplete Groovy** funciona automaticamente em qualquer página com campo
    - No campo de texto, digite "/" seguido do nome que deseja substituir.
 
 Por exemplo, ao digitar "/funcao", o texto será substituído pela função correspondente previamente definida.
+
+## Funções Disponíveis
+
+Abaixo está a lista de funções atualmente disponíveis na extensão, juntamente com seus respectivos atalhos e descrições:
+
+| Atalho                   | Descrição                                                                                   |
+|---------------------------|---------------------------------------------------------------------------------------------|
+| `/teste`                  | Insere o texto "testado again 7.0".                                                         |
+| `/formatarOrganograma`    | Função para formatar um organograma com base em um número e um formato especificado.        |
+| `/formatarCpfCnpj`        | Função para formatar um CPF ou CNPJ conforme o número de dígitos fornecido.                 |
+| `/parseInterval`          | Função para extrair números de uma string e determinar um intervalo.                        |
+| `/formatarTelefone`       | Função para formatar números de telefone no padrão brasileiro.                              |
+| `/extenso`                | Função que converte um valor numérico para seu equivalente por extenso.                     |
+| `/formatarNumero`         | Função para formatar números com separadores de milhar e casas decimais.                    |
+| `/formatarcep`            | Função para formatar um CEP no padrão brasileiro.                                           |
+| `/Esquema.lista`          | Insere um esquema de lista pré-definido.                                                    |
+| `/fonte`                  | Define um esquema e cria uma nova fonte de dados dinâmica.                                  |
+| `/imprimir`               | Insere o comando para imprimir "Olá, mundo!".                                               |
+| `/percorrer`              | Insere um loop para percorrer uma lista e imprimir cada item.                               |
+| `/retornar`               | Insere o comando para retornar um resultado.                                                |
+| `/se`                     | Insere uma estrutura condicional "se" com bloco "senao".                                    |
+| `/tentar`                 | Insere uma estrutura de tratamento de exceções com blocos "tentar", "tratar" e "finalizar". |
+| `/Arquivo.novo`           | Insere o comando para criar um novo arquivo.                                                |
+| `/Arquivo.abrir`          | Insere o comando para abrir um arquivo existente.                                           |
+| `/Arquivo.escrever`       | Insere o comando para escrever conteúdo em um arquivo.                                      |
+| `/Arquivo.ler`            | Insere o comando para ler o conteúdo de um arquivo.                                         |
+| `/Arquivo.fechar`         | Insere o comando para fechar um arquivo.                                                    |
+| `/Email.enviar`           | Insere o comando para enviar um e-mail com destinatário, assunto e mensagem.                |
+| `/Notificacao.enviar`     | Insere o comando para enviar uma notificação a um usuário.                                  |
+| `/Http.servico`           | Insere o comando para criar um serviço HTTP apontando para uma URL específica.              |
+| `/Http.servico().GET`     | Insere o comando para realizar uma requisição GET em um recurso específico.                 |
+| `/Http.servico().POST`    | Insere o comando para realizar uma requisição POST com dados fornecidos.                    |
+| `/Criterio.onde`          | Insere o comando para definir um critério de busca com campo e valor específicos.           |
+| `/Dados.busca`            | Insere o comando para buscar dados com base em um critério definido.                        |
+| `/Cache.definir`          | Insere o comando para definir um valor no cache com uma chave específica.                   |
+| `/Cache.obter`            | Insere o comando para obter um valor do cache com base em uma chave.                        |
+| `/Datas.hoje`             | Insere o comando para obter a data atual.                                                   |
+| `/Datas.somarDias`        | Insere o comando para somar dias à data atual.                                              |
+| `/Caracteres.maiusculo`   | Insere o comando para converter um texto para letras maiúsculas.                            |
+| `/Numeros.arredonda`      | Insere o comando para arredondar um número a uma quantidade específica de casas decimais.   |
 
 ## Suporte e Feedback
 
